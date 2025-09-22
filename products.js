@@ -54,7 +54,7 @@ const productsData = [
     "additional_images": [],
     "videos": []
   },
-  { 
+  /*{ 
     "name": "Memoria 32gb",
     "price": 7.00,
     "image": "imagenes/memoria_32gb.jpg",
@@ -62,7 +62,15 @@ const productsData = [
     "stock": 10,
     "additional_images": [],
     "videos": []
+  },
+  { 
+    "name": "Memoria 64gb",
+    "price": 10.00,
+    "image": "imagenes/memoria64gb.webp",
+    "description": "No te quedes sin espacio! Captúralo todo con la Tarjeta MicroSD Kootion de 64GB.\n\n Diseñada para rendir en las condiciones más difíciles, esta memoria es tu compañera perfecta. Gracias a su velocidad Clase 10, es ideal para grabar videos en Full HD y tomar fotos de alta resolución sin interrupciones.\n\n Características principales:64 GB de almacenamiento: Guarda miles de fotos y horas de video.\n\n Ultra resistente: A prueba de agua, golpes, imanes y rayos X.\n\n Soporta temperaturas extremas: Funciona perfectamente de 0°C a 70°C.\n\n Alta velocidad: Captura y transfiere tus archivos rápidamente.\n\n ¡Compra la tuya y lleva tus recuerdos a todas partes con total seguridad!",  
+    "stock": 10,
+    "additional_images": [],
+    "videos": []
   }
-
-
+*/  
 ];
