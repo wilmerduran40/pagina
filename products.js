@@ -54,15 +54,4 @@ const productsData = [
     "additional_images": [],
     "videos": []
   },
-  { 
-    "name": "Memoria 32gb",
-    "price": 7.00,
-    "image": "imagenes/memoria_32gb.jpg",
-    "description": "Memoria 32gb para celular/Camara entre otros",
-    "stock": 10,
-    "additional_images": [],
-    "videos": []
-  }
-
-
-];
+ ];
