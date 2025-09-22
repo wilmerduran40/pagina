@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - Digital Market Socopo</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a; /* Fondo muy oscuro */
+            color: #e0e0e0; /* Texto claro */
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNzUiIG51bU9jdGF2ZXM9IjQiIHN0aXRjaFRpbGVzPSJub2lzZVRpbGVzIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4wNSIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4='); /* Ruido sutil */
+            background-size: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Botones Generales */
+        .btn {
+            display: inline-block;
+            background-color: #00aaff; /* Azul vibrante */
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #0088cc;
+            transform: translateY(-2px);
+        }
+
+        /* Cabecera */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            color: #00aaff;
+            text-shadow: 0 0 10px rgba(0,170,255,0.5);
+        }
+
+        header p {
+            margin-top: 5px;
+            color: #aaa;
+            font-size: 1.1em;
+        }
+
+        .logo {
+            max-width: 180px; /* Logo un poco más grande */
+            margin-bottom: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,170,255,0.3);
+        }
+
+        /* Navegación */
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.15em;
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #00aaff;
+            left: 50%;
+            bottom: -5px;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Product Detail */
+        .product-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin-top: 40px;
+        }
+
+        .product-detail-image {
+            flex: 1 1 400px;
+            text-align: center;
+        }
+
+        .product-detail-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,170,255,0.3);
+        }
+
+        .product-detail-info {
+            flex: 1 1 500px;
+        }
+
+        .product-detail-info h2 {
+            font-size: 2.5em;
+            color: #00aaff;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-info .price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #00aaff;
+            margin-bottom: 20px;
+        }
+
+        .product-detail-info .description {
+            font-size: 1.1em;
+            color: #c0c0c0;
+            margin-bottom: 30px;
+            white-space: pre-wrap; /* Para respetar saltos de línea */
+        }
+
+        .stock-status {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .in-stock {
+            color: #28a745; /* Verde */
+        }
+
+        .out-of-stock {
+            color: #dc3545; /* Rojo */
+        }
+
+        .btn.disabled, .btn:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .product-detail-actions .btn {
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        .additional-media {
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .additional-media h3 {
+            font-size: 1.8em;
+            color: #00aaff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .media-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .media-item iframe {
+            width: 100%;
+            height: 350px; /* Aumentado para hacer el video más grande */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        /* Pie de Página */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            background-color: #1a1a1a;
+            border-top: 1px solid #333;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+            font-size: 0.95em;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-detail {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .product-detail-image, .product-detail-info {
+                flex: 1 1 100%;
+            }
+            .product-detail-actions .btn {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="imagenes/logo.png" alt="Digital Market Socopo Logo" class="logo">
+        <h1>Digital Market Socopo</h1>
+        <p>Tecnología de Vanguardia a tu Alcance</p>
+    </header>
+
+    <nav>
+        <a href="store.html">Inicio</a>
+        <a href="store.html#productos">Productos</a>
+        <a href="store.html#cart">Carrito (<span id="cart-count">0</span>)</a>
+        <a href="store.html#contacto">Contacto</a>
+    </nav>
+
+    <main class="container">
+        <div class="product-detail" id="product-detail-container">
+            <!-- Product details will be loaded here -->
+        </div>
+
+        <div class="additional-media" id="additional-media-container" style="display: none;">
+            <h3>Más imágenes y videos</h3>
+            <div class="media-grid" id="media-grid">
+                <!-- Additional images and videos will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Digital Market Socopo. Todos los derechos reservados.</p>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68910639a34d1b1925282ab2/1j1r80kn0';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productName = urlParams.get('name');
+
+            const product = productsData.find(p => p.name === productName);
+
+            const productDetailContainer = document.getElementById('product-detail-container');
+            const additionalMediaContainer = document.getElementById('additional-media-container');
+            const mediaGrid = document.getElementById('media-grid');
+
+            if (product) {
+                const isOutOfStock = product.stock === 0;
+                let stockInfoHTML = '';
+                if (isOutOfStock) {
+                    stockInfoHTML = `<p class="stock-status out-of-stock">Agotado</p>`;
+                } else {
+                    stockInfoHTML = `<p class="stock-status in-stock">Disponibles: ${product.stock}</p>`;
+                }
+
+                productDetailContainer.innerHTML = `
+                    <div class="product-detail-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-detail-info">
+                        <h2>${product.name}</h2>
+                        <p class="price">${product.price.toFixed(2)}</p>
+                        ${stockInfoHTML}
+                        <p class="description">${product.description}</p>
+                        <div class="product-detail-actions">
+                            <button class="btn add-to-cart" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}" ${isOutOfStock ? 'disabled' : ''}>Añadir al Carrito</button>
+                            <a href="https://wa.me/584163781665?text=Estoy%20interesado%20en%20${encodeURIComponent(product.name)}.%20Imagen:%20https://digitalmarketsocopo.vercel.app/${product.image}" target="_blank" class="btn direct-buy ${isOutOfStock ? 'disabled' : ''}" ${isOutOfStock ? 'aria-disabled="true" onclick="return false;"' : ''}>Comprar Ahora</a>
+                        </div>
+                    </div>
+                `;
+
+                // Render additional media
+                if (product.additional_images.length > 0 || product.videos.length > 0) {
+                    additionalMediaContainer.style.display = 'block';
+                    product.additional_images.forEach(imgUrl => {
+                        const imgItem = document.createElement('div');
+                        imgItem.classList.add('media-item');
+                        imgItem.innerHTML = `<img src="${imgUrl}" alt="${product.name} - Imagen adicional">`;
+                        mediaGrid.appendChild(imgItem);
+                    });
+
+                    product.videos.forEach(videoUrl => {
+                        const videoItem = document.createElement('div');
+                        videoItem.classList.add('media-item');
+                        videoItem.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                        mediaGrid.appendChild(videoItem);
+                    });
+                }
+
+                // Carrito de compras (similar a index.html)
+                const cartCountSpan = document.getElementById('cart-count');
+                let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+                function saveCart() {
+                    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                }
+
+                function updateCartCount() {
+                    cartCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                }
+
+                function addToCart(productName, productPrice, productImage) {
+                    const existingItem = cart.find(item => item.name === productName);
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({ name: productName, price: productPrice, image: productImage, quantity: 1 });
+                    }
+                    saveCart();
+                    updateCartCount();
+                    alert(`${productName} ha sido añadido al carrito.`);
+                }
+
+                document.querySelector('.add-to-cart').addEventListener('click', (e) => {
+                    const productName = e.target.dataset.name;
+                    const productPrice = parseFloat(e.target.dataset.price);
+                    const productImage = e.target.dataset.image;
+                    addToCart(productName, productPrice, productImage);
+                });
+
+                updateCartCount(); // Inicializar el contador del carrito
+
+            } else {
+                productDetailContainer.innerHTML = '<p>Producto no encontrado.</p>';
+            }
+        });
+    </script>
+
+</body>
+</html>

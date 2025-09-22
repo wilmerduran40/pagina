@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Market Socopo</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a; /* Fondo muy oscuro */
+            color: #e0e0e0; /* Texto claro */
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNzUiIG51bU9jdGF2ZXM9IjQiIHN0aXRjaFRpbGVzPSJub2lzZVRpbGVzIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4wNSIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiLz48L3N2Zz4='); /* Ruido sutil */
+            background-size: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Botones Generales */
+        .btn {
+            display: inline-block;
+            background-color: #00aaff; /* Azul vibrante */
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #0088cc;
+            transform: translateY(-2px);
+        }
+
+        /* Cabecera */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            color: #00aaff;
+            text-shadow: 0 0 10px rgba(0,170,255,0.5);
+        }
+
+        header p {
+            margin-top: 5px;
+            color: #aaa;
+            font-size: 1.1em;
+        }
+
+        .logo {
+            max-width: 180px; /* Logo un poco más grande */
+            margin-bottom: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,170,255,0.3);
+        }
+
+        /* Navegación */
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.15em;
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #00aaff;
+            left: 50%;
+            bottom: -5px;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Sección Hero */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('fondo_tecnologia.jpg') no-repeat center center/cover; /* Fondo de imagen */
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(0,170,255,0.7);
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #c0c0c0;
+        }
+
+        .hero-btn {
+            padding: 15px 35px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            background-color: #00aaff;
+            box-shadow: 0 5px 15px rgba(0,170,255,0.4);
+        }
+
+        .hero-btn:hover {
+            background-color: #0088cc;
+            box-shadow: 0 8px 20px rgba(0,170,255,0.6);
+        }
+
+        /* Sección de Productos */
+        .products {
+            padding: 40px 0;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #00aaff;
+            text-shadow: 0 0 8px rgba(0,170,255,0.3);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            padding-bottom: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 170, 255, 0.3);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 220px; /* Imágenes un poco más grandes */
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.6em;
+            margin: 0 0 10px 0;
+            color: #e0e0e0;
+        }
+
+        .product-card .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #00aaff;
+            margin-bottom: 10px; /* Reduced margin */
+        }
+
+        .stock-status {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .in-stock {
+            color: #28a745; /* Verde */
+        }
+
+        .out-of-stock {
+            color: #dc3545; /* Rojo */
+        }
+
+        .btn.disabled, .btn:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .product-card .btn {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 0.95em;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 15px 15px;
+        }
+
+        /* Formulario de Contacto */
+        .contact-form {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            color: #00aaff;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #2a2a2a;
+            color: #f4f4f4;
+            box-sizing: border-box;
+            font-size: 1.05em;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #00aaff;
+            box-shadow: 0 0 8px rgba(0,170,255,0.5);
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2em;
+            border-radius: 8px;
+        }
+
+        /* Carrito de Compras */
+        #cart-items {
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .cart-item img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 8px 0;
+            font-size: 1.2em;
+            color: #00aaff;
+        }
+
+        .cart-item-details p {
+            margin: 0;
+            color: #c0c0c0;
+            font-size: 1.05em;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-quantity input {
+            width: 60px;
+            text-align: center;
+            margin: 0 12px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #f4f4f4;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .cart-item-quantity button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .cart-item-quantity button:hover {
+            background-color: #0088cc;
+        }
+
+        /* Otras Formas de Contacto */
+        .other-contact {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .other-contact h2 {
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            color: #00aaff;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-item:hover {
+            color: #00aaff;
+            transform: translateY(-5px);
+        }
+
+        .contact-item img {
+            width: 60px; /* Iconos un poco más grandes */
+            height: 60px;
+            margin-bottom: 12px;
+            filter: brightness(1.2) drop-shadow(0 0 5px rgba(0,170,255,0.3)); /* Efecto de brillo */
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Pie de Página */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            background-color: #1a1a1a;
+            border-top: 1px solid #333;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+            font-size: 0.95em;
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="imagenes/logo.png" alt="Digital Market Socopo Logo" class="logo">
+        <h1>Digital Market Socopo</h1>
+        <p>Tecnología de Vanguardia a tu Alcance</p>
+    </header>
+
+    <nav>
+        <a href="#hero">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#cart">Carrito (<span id="cart-count">0</span>)</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="hero">
+        <div class="container">
+            <h1>Tu Destino para la Tecnología</h1>
+            <p>Descubre lo último en cámaras, proyectores y accesorios inteligentes.</p>
+            <a href="#productos" class="btn hero-btn">Explorar Productos</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- Sección de Productos -->
+        <section id="productos" class="products">
+            <h2>Nuestros Productos</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Los productos se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Sección del Carrito -->
+        <section id="cart" class="products">
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <div id="cart-actions" style="display: none;">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+                <button id="checkout-whatsapp" class="btn">Enviar Pedido por WhatsApp</button>
+                <button id="checkout-email" class="btn">Enviar Pedido por Correo</button>
+                <button id="checkout-zinli" class="btn">Pagar con Zinli</button>
+                <button id="checkout-paypal" class="btn">Pagar con PayPal</button>
+                <button id="checkout-binance" class="btn">Pagar con Binance Pay</button>
+                <button id="clear-cart" class="btn">Vaciar Carrito</button>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto">
+            <form class="contact-form" action="https://formspree.io/f/xyzpwvnd" method="POST">
+                <h2>Contáctanos</h2>
+                <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+                <input type="tel" name="telefono" placeholder="Tu Número de Teléfono" required>
+                <textarea name="mensaje" rows="5" placeholder="Tu Mensaje" required></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <!-- Sección de Otras Formas de Contacto -->
+        <section class="other-contact">
+            <h2>Otras formas de contacto</h2>
+            <div class="contact-icons">
+                <a href="https://wa.me/c/584163781665" target="_blank" class="contact-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="Catálogo WhatsApp">
+                    <span>Catálogo</span>
+                </a>
+                <a href="https://wa.me/584163781665" target="_blank" class="contact-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp">
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/digitalmarketsocopo" target="_blank" class="contact-item">
+                    <img src="https://png.pngtree.com/element_our/sm/20180630/sm_5b37de3263964.jpg" alt="Instagram">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://articulo.mercadolibre.com.ve/MLV-770459511-camara-yilot-2mp-360-incluye-memoria-32gb-_JM" target="_blank" class="contact-item">
+                    <img src="https://http2.mlstatic.com/static/org-img/homesnw/mercado-libre.png" alt="MercadoLibre">
+                    <span>MercadoLibre</span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Digital Market Socopo. Todos los derechos reservados.</p>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68910639a34d1b1925282ab2/1j1r80kn0';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CONFIGURACIÓN ---
+            const phoneNumber = '584163781665';
+            const emailAddress = 'digitalmarket549@gmail.com';
+            const zinliLink = 'https://recargas.zinli.com/h5HcRQkgNjKNVQVXKXtgQb';
+            const paypalLink = 'https://paypal.me/wilmerduran40';
+
+            // --- ELEMENTOS DEL DOM ---
+            const productGrid = document.getElementById('product-grid');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalSpan = document.getElementById('cart-total');
+            const cartCountSpan = document.getElementById('cart-count');
+            const cartActions = document.getElementById('cart-actions');
+            const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp');
+            const checkoutEmailBtn = document.getElementById('checkout-email');
+            const checkoutZinliBtn = document.getElementById('checkout-zinli');
+            const checkoutPaypalBtn = document.getElementById('checkout-paypal');
+            const checkoutBinanceBtn = document.getElementById('checkout-binance');
+            const clearCartBtn = document.getElementById('clear-cart');
+
+            // --- ESTADO DEL CARRITO ---
+            let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+            // --- FUNCIONES ---
+
+            function saveCart() {
+                localStorage.setItem('shoppingCart', JSON.stringify(cart));
+            }
+
+            function renderProducts() {
+                productGrid.innerHTML = '';
+                productsData.forEach(product => {
+                    const productCardDiv = document.createElement('div');
+                    productCardDiv.className = 'product-card';
+
+                    const isOutOfStock = product.stock === 0;
+                    let stockInfoHTML = '';
+                    if (isOutOfStock) {
+                        stockInfoHTML = `<p class="stock-status out-of-stock">Agotado</p>`;
+                    } else {
+                        stockInfoHTML = `<p class="stock-status in-stock">Disponibles: ${product.stock}</p>`;
+                    }
+
+                    productCardDiv.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p class="price">${product.price.toFixed(2)}</p>
+                        ${stockInfoHTML}
+                        <div class="product-actions">
+                            <button class="btn add-to-cart" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}" ${isOutOfStock ? 'disabled' : ''}>Añadir al Carrito</button>
+                            <a href="https://wa.me/${phoneNumber}?text=Estoy%20interesado%20en%20${encodeURIComponent(product.name)}.%20Imagen:%20https://digitalmarketsocopo.vercel.app/${product.image}" target="_blank" class="btn direct-buy ${isOutOfStock ? 'disabled' : ''}" ${isOutOfStock ? 'aria-disabled="true" onclick="return false;"' : ''}>Comprar Ahora</a>
+                        </div>
+                    `;
+
+                    // Add click listener to the product card div for navigation
+                    productCardDiv.addEventListener('click', (e) => {
+                        // Only navigate if the click was not on a button or link inside the card
+                        if (!e.target.closest('.btn')) {
+                            window.location.href = `detalle_producto.html?name=${encodeURIComponent(product.name)}`;
+                        }
+                    });
+
+                    productGrid.appendChild(productCardDiv);
+                });
+
+                // Re-attach event listeners for add-to-cart buttons after rendering products
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault(); // Prevent the link from navigating
+                        const productName = button.dataset.name;
+                        const productPrice = parseFloat(button.dataset.price);
+                        const productImage = button.dataset.image;
+                        addToCart(productName, productPrice, productImage);
+                    });
+                });
+            }
+
+            function updateCartDisplay() {
+                cartItemsContainer.innerHTML = '';
+                let total = 0;
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>El carrito está vacío.</p>';
+                    cartActions.style.display = 'none';
+                } else {
+                    cartActions.style.display = 'block';
+                    cart.forEach(item => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
+
+                        const cartItemDiv = document.createElement('div');
+                        cartItemDiv.classList.add('cart-item');
+                        cartItemDiv.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.price.toFixed(2)} x ${item.quantity} = ${itemTotal.toFixed(2)}</p>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn" data-name="${item.name}" data-action="decrease">-</button>
+                                <input type="number" value="${item.quantity}" min="1" readonly>
+                                <button class="quantity-btn" data-name="${item.name}" data-action="increase">+</button>
+                            </div>
+                        `;
+                        cartItemsContainer.appendChild(cartItemDiv);
+                    });
+                }
+
+                cartTotalSpan.textContent = total.toFixed(2);
+                cartCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                saveCart();
+            }
+
+            function addToCart(productName, productPrice, productImage) {
+                const existingItem = cart.find(item => item.name === productName);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ name: productName, price: productPrice, image: productImage, quantity: 1 });
+                }
+                updateCartDisplay();
+            }
+
+            function handleQuantityChange(productName, action) {
+                const itemIndex = cart.findIndex(item => item.name === productName);
+                if (itemIndex === -1) return;
+
+                if (action === 'increase') {
+                    cart[itemIndex].quantity++;
+                } else if (action === 'decrease') {
+                    cart[itemIndex].quantity--;
+                    if (cart[itemIndex].quantity <= 0) {
+                        cart.splice(itemIndex, 1);
+                    }
+                }
+                updateCartDisplay();
+            }
+
+            // --- EVENT LISTENERS ---
+
+            // productGrid.addEventListener('click', (e) => {
+            //     if (e.target.classList.contains('add-to-cart')) {
+            //         const productCard = e.target.closest('.product-card');
+            //         const productName = productCard.dataset.name;
+            //         const productPrice = parseFloat(productCard.dataset.price);
+            //         const productImage = productCard.dataset.image;
+            //         addToCart(productName, productPrice, productImage);
+            //     }
+            // });
+
+            cartItemsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('quantity-btn')) {
+                    const productName = e.target.dataset.name;
+                    const action = e.target.dataset.action;
+                    handleQuantityChange(productName, action);
+                }
+            });
+
+            clearCartBtn.addEventListener('click', () => {
+                cart = [];
+                updateCartDisplay();
+            });
+
+            checkoutWhatsappBtn.addEventListener('click', () => {
+                if (cart.length === 0) return alert('Tu carrito está vacío.');
+                let message = "¡Hola! Estoy interesado en realizar un pedido:\n\n";
+                cart.forEach(item => {
+                    message += `- ${item.name} (Cantidad: ${item.quantity}, Precio Unitario: ${item.price.toFixed(2)})
+`;
+                });
+                message += `
+Total: ${cartTotalSpan.textContent}
+
+Por favor, confírmame la disponibilidad y el proceso de pago.`;
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            });
+
+            checkoutEmailBtn.addEventListener('click', () => {
+                if (cart.length === 0) return alert('Tu carrito está vacío.');
+                let subject = "Pedido desde Digital Market Socopo";
+                let body = "¡Hola! Estoy interesado en realizar un pedido:\n\n";
+                cart.forEach(item => {
+                    body += `- ${item.name} (Cantidad: ${item.quantity}, Precio Unitario: ${item.price.toFixed(2)})
+`;
+                });
+                body += `
+Total: ${cartTotalSpan.textContent}
+
+Por favor, confírmame la disponibilidad y el proceso de pago.`;
+                window.open(`mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+            });
+
+            checkoutZinliBtn.addEventListener('click', () => {
+                if (cart.length === 0) return alert('Tu carrito está vacío.');
+                alert(`Serás redirigido a Zinli para pagar un total de ${cartTotalSpan.textContent}. Por favor, ingresa este monto manualmente.`);
+                window.open(zinliLink, '_blank');
+            });
+
+            checkoutPaypalBtn.addEventListener('click', () => {
+                if (cart.length === 0) return alert('Tu carrito está vacío.');
+                const totalAmount = cartTotalSpan.textContent;
+                alert(`Serás redirigido a PayPal para pagar un total de ${totalAmount}.`);
+                window.open(`${paypalLink}/${totalAmount}`, '_blank');
+            });
+
+            checkoutBinanceBtn.addEventListener('click', () => {
+                if (cart.length === 0) return alert('Tu carrito está vacío.');
+                let message = `¡Hola! Quiero pagar mi pedido de ${cartTotalSpan.textContent} con Binance Pay.
+
+`;
+                message += "Por favor, envíame tu Pay ID o el código QR para realizar el pago.\n\n";
+                message += "Resumen del pedido:\n";
+                cart.forEach(item => {
+                    message += `- ${item.name} (Cantidad: ${item.quantity})
+`;
+                });
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            });
+
+            // --- INICIALIZACIÓN ---
+            renderProducts();
+            updateCartDisplay();
+        });
+    </script>
+
+</body>
+</html>
