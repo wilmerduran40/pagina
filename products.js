@@ -26,6 +26,42 @@ const productsData = [
     "stock": 5,
     "additional_images": [],
     "videos": []
+  },
+  {
+    "name": "Camara Seguridad Huntvision 360º",
+    "price": 30.00,
+    "image": "imagenes/1.png",
+    "description": "Asegura tu hogar o negocio con la cámara de seguridad Huntvision!Captura cada detalle con su calidad Full HD y doble cámara de 2MP.\n\n Ya sea de día o de noche, su visión nocturna a todo color te ofrece imágenes claras y nítidas, para que no te pierdas de nada.\n\n Características principales:\n\nDoble cámara de 2MP: Monitorea un área más amplia y captura más detalles.\n\nAudio bidireccional: Habla y escucha a través de la cámara, ideal para comunicarte con tus mascotas o familiares. \n\nDetección de movimiento: Recibe alertas instantáneas en tu teléfono cuando se detecta movimiento.\n \nAlmacenamiento en la nube y tarjeta SD: Guarda tus grabaciones de forma segura. ¡Incluye una tarjeta de memoria de 32 GB!, Acceso compartido: Permite que varios usuarios vean la transmisión en vivo al mismo tiempo. fácil de usar: Simplemente escanea el código QR para descargar la aplicación y configura la cámara en minutos.¡No esperes más para proteger lo que más te importa!",
+    "stock": 6,
+    "additional_images": [],
+    "videos": []
+  },
+  {
+    "name": "Cámara Instavision IP66 360°",
+    "price": 40.00,
+    "image": "imagenes/2.png",
+    "description": "¡Protege lo que más te importa con la cámara Instavision IP66 360°!\n\nEsta cámara de alta tecnología es perfecta para uso en exteriores e interiores y está diseñada para soportar cualquier condición climática gracias a su resistencia IP66 a la intemperie. Su seguimiento panorámico de 360° te permite vigilar cada rincón de tu propiedad sin puntos ciegos.\n\nCaracterísticas destacadas:\n\n    Rotación 360°: Controla la cámara desde tu teléfono para obtener una vista completa de tu entorno.\n\n    Detección inteligente: Recibe alertas precisas cuando se detecta el movimiento de personas, vehículos o incluso mascotas, filtrando falsas alarmas.\n\n    Fácil instalación: Simplemente escanea el código QR y descarga la aplicación compatible con iPhone y Android para una configuración rápida y sencilla.\n\n    Diseño robusto: Su carcasa impermeable la hace ideal para soportar la lluvia y el sol, garantizando una larga vida útil.\n\n¡No dejes nada al azar y mantén tu hogar o negocio seguro las 24 horas del día!",
+    "stock": 10,
+    "additional_images": [],
+    "videos": []
+  },
+  {
+    "name": "Cámara de seguridad solar BEENOCAM",
+    "price": 60.00,
+    "image": "imagenes/3.png",
+    "description": "Características Principales:\n\n    ☀️ 100% Inalámbrica y Autónoma: Funciona con energía solar y una batería de larga duración. ¡Instálala donde quieras, sin necesidad de cables!\n\n    👁️ Vigilancia 360° con Doble Lente: Cobertura total con movimiento horizontal y vertical. Visualiza todo el entorno desde una sola cámara.\n\n    🎥 Calidad de Video Superior 2K: Imágenes ultra nítidas para identificar rostros, matrículas y detalles importantes con total claridad.\n\n    📱 Control Total desde tu App: Monitorea en tiempo real, mueve la cámara y accede a las grabaciones directamente desde tu smartphone, estés donde estés.\n\n    🌙 Visión Nocturna a Color: Equipada con potentes LEDs infrarrojos y luces blancas, ofrece imágenes claras en blanco y negro o a todo color en la oscuridad.\n\n    🏃‍♂️ Detección Inteligente de Movimiento: Recibe alertas instantáneas en tu teléfono cuando la cámara detecte actividad. Su tecnología avanzada ayuda a diferenciar entre personas, mascotas y otros movimientos para reducir falsas alarmas.\n\n    🎤 Audio Bidireccional: Escucha lo que sucede y habla a través de la cámara. Ideal para dar instrucciones a un repartidor o disuadir a intrusos.\n\n    🚨 Sirena y Luz Disuasoria: Activa una alarma sonora y luces estroboscópicas de forma remota o automática para ahuyentar a cualquier visitante no deseado.\n\n¡No esperes más para tener la seguridad que mereces! Protege a tu familia y tu patrimonio con la solución de vigilancia más completa e inteligente del mercado.\n\nCompra la tuya AHORA.\nContacto y Pedidos: 04163781665\nSíguenos en Instagram: @digitalmarketsocopo",
+    "stock": 5,
+    "additional_images": [],
+    "videos": []
+  },
+  { 
+    "name": "Memoria 32gb",
+    "price": 7.00,
+    "image": "imagenes/memoria_32gb.jpg",
+    "description": "Memoria 32gb para celular/Camara entre otros",
+    "stock": 10,
+    "additional_images": [],
+    "videos": []
   }
 
 
